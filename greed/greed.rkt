@@ -16,11 +16,12 @@
                  (rule 5  50 100  500  550  600)
                  (rule 6   0   0  600    0    0))))
 
+(define (test input output) (= (score input) output))
 (displayln
- (if (and (= (score '(1 1 1 5 1)) 1150)
-          (= (score '(2 3 4 6 2))    0)
-          (= (score '(3 4 5 3 3))  350)
-          (= (score '(1 5 1 2 4))  250)
-          (= (score '(5 5 5 5 5))  600))
+ (if (and (test '(1 1 1 5 1) 1150)
+          (test '(2 3 4 6 2)    0)
+          (test '(3 4 5 3 3)  350)
+          (test '(1 5 1 2 4)  250)
+          (test '(5 5 5 5 5)  600))
      "Tests passed"
      "Tests failed"))
