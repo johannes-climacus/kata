@@ -1,15 +1,17 @@
 .DEFAULT_GOAL := all
 
 racket:
-	racket fizzbuzz.rkt  | diff fizzbuzz.txt -
+	racket fizzbuzz.rkt  | diff expected.txt -
+forth :
+	gforth fizzbuzz.fth  | tr -d ' ' | diff expected.txt -
 fsharp:
-	fsharpi fizzbuzz.fsx | diff fizzbuzz.txt -
+	fsharpi fizzbuzz.fsx | diff expected.txt -
 awk:
-	./fizzbuzz.awk       | diff fizzbuzz.txt -
+	./fizzbuzz.awk       | diff expected.txt -
 posix:
-	./fizzbuzz.sh        | diff fizzbuzz.txt -
+	./fizzbuzz.sh        | diff expected.txt -
 ocaml:
-	ocaml fizzbuzz.ml    | diff fizzbuzz.txt -
+	ocaml fizzbuzz.ml    | diff expected.txt -
 javascript:
-	node fizzbuzz.js     | diff fizzbuzz.txt -
-all: racket fsharp awk posix ocaml javascript
+	node fizzbuzz.js     | diff expected.txt -
+all: racket forth fsharp awk posix ocaml javascript
