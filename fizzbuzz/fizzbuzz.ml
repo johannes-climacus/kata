@@ -10,5 +10,5 @@ let fizzbuzz i =
   | _  -> string_of_int i
 ;;
 
-range 1 100 |> List.iter (fizzbuzz >> (Printf.printf "%s \n"));;
+range 1 100 |> List.iter (fizzbuzz >> (Printf.printf "%s\n"));;
 
