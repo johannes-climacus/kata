@@ -8,7 +8,7 @@
       [3 "Fizz"]
       [_ n]))
 
-  (for ([n (in-range 1 (+ i 1)]) (displayln (filter n)))))
+  (for ([n (in-range 1 (+ i 1))]) (displayln (filter n))))
 
-(fizbuzz 100)
+(fizzbuzz 100)
 

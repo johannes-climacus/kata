@@ -14,4 +14,6 @@ ocaml:
 	ocaml fizzbuzz.ml    | diff expected.txt -
 javascript:
 	node fizzbuzz.js     | diff expected.txt -
-all: racket forth fsharp awk posix ocaml javascript
+elixir:
+	elixir fizzbuzz.ex   | diff expected.txt -
+all: racket forth fsharp awk posix ocaml javascript elixir
