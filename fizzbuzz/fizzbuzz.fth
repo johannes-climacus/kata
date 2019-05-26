@@ -5,7 +5,7 @@
    dup .
    then then then drop ;
 
-: fizzbuzz 1+ 1 do i filter cr loop ;
+: fizzbuzz 1 do i 1 + filter cr loop ;
 
 100 fizzbuzz
 

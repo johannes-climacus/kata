@@ -1,12 +1,16 @@
-const range = (i, j) => [...Array(j).keys()].filter(x => x >= i);
+const range = (i, j) => [...Array(j + 1).keys()].filter(x => x >= i);
 
-const fizzbuzz = i => {
-  const dividesp = (x, y) => (x % y) === 0;
-  if      (dividesp(i, 15)) { return "FizzBuzz" }
-  else if (dividesp(i,  5)) { return "Buzz"}
-  else if (dividesp(i,  3)) { return "Fizz"}
-  else                      { return i };
+const fizzbuzz = (i) => {
+  const filter = (j) => {
+    const dividesp = y => (j % y) === 0;
+    if (dividesp(15)) { return 'FizzBuzz'; }
+    if (dividesp(5)) { return 'Buzz'; }
+    if (dividesp(3)) { return 'Fizz'; }
+    return j;
+  };
+
+  range(1, i).forEach(x => console.log(filter(x)));
 };
 
-range(1, 101).forEach(x => console.log(fizzbuzz(x)));
+fizzbuzz(100);
 
