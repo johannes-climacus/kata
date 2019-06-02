@@ -1,17 +1,24 @@
 #lang racket
-(require threading)
 
-(define (fizzbuzz x)
-  (define (buzzer n)
-    (match (gcd n 15)
-      [15 "FizzBuzz"]
-      [5 "Buzz"]
-      [3 "Fizz"]
-      [_ n]))
+(define (square n) (* n n))
 
-  (for ([n (in-naturals)]
-        #:when  (> n      0)
-        #:break (= n (+ 1 x)))
-    (~> n buzzer displayln)))
+; test
+; (= (square 2) 4)
 
-(fizzbuzz 100)
+(define (sum-squares through)
+  (for/sum ([n (in-range 1 (+ 1 through))]) (square n)))
+
+; test
+; (= (sum-squares 10) 385)
+
+(define (square-sum through)
+  (square (for/sum ([n (in-range 1 (+ 1 through))]) n)))
+
+; test
+; (= (square-sum 10) 3025)
+
+(define (square-sum-difference through)
+  (- (square-sum through) (sum-squares through)))
+
+; test
+; (= (square-sum-difference 10) 2640)
