@@ -3,8 +3,6 @@ let isEven i = isDivisible i 2I ;;
 let isOdd i = not (isEven i) ;;
 let bigIntSqrt (i : bigint) = i |> float |> sqrt |> bigint ;;
 
-let factors i = Set [1I..i] |> Set.filter(isDivisible i) ;;
-
 let sieveOfEratosthenes (limit : bigint) =
   let baseRange =
     [2I..limit]
@@ -23,10 +21,8 @@ let sieveOfEratosthenes (limit : bigint) =
     | h :: t -> crossOff t (set |> Set.filter(fun x -> filterer x h))
 
   crossOff limitedSquares baseRange
-;;
 
 sieveOfEratosthenes 150000I
 |> Set.toSeq
 |> Seq.item 10000
-;;
 
