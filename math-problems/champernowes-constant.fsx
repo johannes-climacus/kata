@@ -4,7 +4,7 @@ let champer range nths =
     |> List.map string
     |> String.concat ""
     |> List.ofSeq
-    |> List.map(fun x -> int x - 48)
+    |> List.map(fun c -> int c - 48)
   let rec loop range nths acc =
     match nths with
     | []     -> acc
